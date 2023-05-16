@@ -12,4 +12,4 @@ class Matriz():
         return v
     
     def request_vec(self) -> int:
-        
+        pass
