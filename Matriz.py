@@ -1,8 +1,8 @@
-import random
+
 
 class Matriz():
     import math
-    
+    import random
 
     def __init__(self,f: int ,c: int ,v1:list ,v2: list ) -> None:
         self.f = f
@@ -52,12 +52,11 @@ class Matriz():
         return mult
     
     def divmt(self, m1, m2):
+     return None
+    
 
-
-
-
-        return pass
 #test func
+import Matriz as M
 
-v = ranvec(4, 4)
 
+print(M.ranvec(1,6))
