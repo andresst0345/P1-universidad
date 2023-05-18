@@ -28,7 +28,11 @@ class Matriz():
               fil.append(m1[ii][j] + m2[ii][j])
            suma.append(fil)
 
-    
+    def multvec(self, ):
+       mult = []
+
+
+       return mult
 
 #test func
 
