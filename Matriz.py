@@ -28,11 +28,15 @@ class Matriz():
               fil.append(m1[ii][j] + m2[ii][j])
            suma.append(fil)
 
-    def multvec(self, ):
-       mult = []
+    def multvec(self,m1 ,m2 ):
+        mult = []
+        if len(m1[0]) != len(m2):
+            raise ValueError("El número de columnas de la matriz1 debe ser igual al número de filas de la matriz2")
+        fil_m1 = len(m1)
+        col_m1 = len(m1[0])
+        col_m2 = len(m2[0])
 
-
-       return mult
+        return mult
 
 #test func
 
