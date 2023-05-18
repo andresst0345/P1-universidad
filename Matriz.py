@@ -27,5 +27,5 @@ class Matriz():
 
 #test func
 
-v = randvec(4, 4)
+v = ranvec(4, 4)
 
