@@ -1,8 +1,6 @@
 
 
 class Matriz():
-    import math
-    import random
 
     def __init__(self,f: int ,c: int ,v1:list ,v2: list ) -> None:
         self.f = f
@@ -15,7 +13,7 @@ class Matriz():
         import random as m
         mtz = []
         for i in range(c):
-         fil = [random.randint(-100,100) for vi in range(f)]
+         fil = [m.randint(-100,100) for vi in range(f)]
          mtz.append(fil)
         return mtz
     
@@ -56,7 +54,7 @@ class Matriz():
     
 
 #test func
-import Matriz as M
+import Matriz as Mt
 
 
-print(M.ranvec(1,6))
+print(Mt.ranvec(1,6))
