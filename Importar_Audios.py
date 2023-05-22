@@ -1,5 +1,7 @@
 import numpy as np
 
+# rb -> read Binary
+
 path= "C:/Poyecto PG1/hVd Database-F"
 file_name= "hAd.0"
 
