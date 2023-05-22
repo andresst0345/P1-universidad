@@ -1,12 +1,7 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import scipy.io as sc
-
-
-path= "G:/Torrent/hVd Database/alex"
+path= "C:/Poyecto PG1/hVd Database-F"
 file_name= "hAd.0"
 
-files = {"hAd.0","haid.0", "haud.0", "hEd.0" }
+files = ["hAd.0","haid.0", "haud.0", "hEd.0"]
 
 def import_audio(path: str, file_name: str) -> np.array:
 
@@ -22,9 +17,3 @@ def import_audio(path: str, file_name: str) -> np.array:
 Alex_1 =import_audio(path,file_name)
 print(len(Alex_1))
 print(Alex_1)
-
-
-
-
-
-
