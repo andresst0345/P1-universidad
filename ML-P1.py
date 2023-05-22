@@ -1,13 +1,11 @@
 import scipy 
 import matplotlib as mp
 import numpy as np
-
-files = {"hAd.0","haid.0", "haud.0", "hEd.0" }
-
-
-
-path= "G:/Torrent/hVd Database/alex"
+#
+path = "C:/Poyecto PG1/hVd Database-F/bill"
+files = ["hAd.0","haid.0", "haud.0", "hEd.0"]
 file_name= "hAd.0"
+#
 
 def import_audio(path: str, file_name: str) -> np.array:
 
@@ -18,5 +16,44 @@ def import_audio(path: str, file_name: str) -> np.array:
         data_array = data_array / max(data_array)
 
     return data_array
+
+def energia(v: list) -> float:
+    ope = []
+
+    for i in range(len(v)):
+        c = v[i] **2
+        ope.append(c)
+
+    se = sum(ope)
+    eng = se / len(v)
+
+    return eng
+
+def zero_cross(vec) -> float:
+    opz = []
+
+    for ii in range(len(vec)):
+        b = np.sign(vec[ii]) 
+        a = np.sign(vec[ii]-1)
+        d = b - a
+        opz.append(d)
+    
+    szc = sum(opz)
+    zcr = szc / len(vec)
+
+    return zcr
+
+def entropia(vc: list) -> float:
+    opent = []
+
+    for iii in range(len(vc)):
+        
+
+    return None
+
+#test
+k = import_audio(path, file_name)
+print("zero cross ->",zero_cross(k),"\n")
+print("energia ->",energia(k),"\n")
 
 
