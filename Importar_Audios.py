@@ -1,3 +1,5 @@
+import numpy as np
+
 path= "C:/Poyecto PG1/hVd Database-F"
 file_name= "hAd.0"
 
