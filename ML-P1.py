@@ -59,8 +59,8 @@ def entropia(vc: list) -> float:
 
 #test
 k = import_audio(path, file_name)
-print("zero cross ->",zero_cross(k),"\n")
 print("energia ->",energia(k),"\n")
+print("zero cross ->",zero_cross(k),"\n")
 print("Entropia ->", entropia(k),"\n")
 
 
