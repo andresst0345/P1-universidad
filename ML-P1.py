@@ -39,7 +39,7 @@ def zero_cross(vec) -> float:
         opz.append(d)
     
     szc = sum(opz)
-    zcr = szc / len(vec)
+    zcr = szc / 2*len(vec)
 
     return zcr
 
@@ -47,13 +47,20 @@ def entropia(vc: list) -> float:
     opent = []
 
     for iii in range(len(vc)):
-        
+        y = ((vc[iii]) / energia(vc))**2
+        z = np.log(y)
+        w = y * z
+        opent.append(w)
 
-    return None
+        sent = sum(opent)
+        H = sent / len(vc)
+    
+        return H
 
 #test
 k = import_audio(path, file_name)
 print("zero cross ->",zero_cross(k),"\n")
 print("energia ->",energia(k),"\n")
+print("Entropia ->", entropia(k),"\n")
 
 
