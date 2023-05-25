@@ -76,14 +76,16 @@ def calcular_resultados(files, folders, path):
 # 
 resultados = calcular_resultados(files, folders, path)
 
+# carpeta 0 - archivo 0
+
 rt_C0_A0 = resultados[0][0]
 energia_C0_A0 = rt_C0_A0[0]
 zero_cross_C0_A0 = rt_C0_A0[1]
 entropia_C0_A0 = rt_C0_A0[2]
 
-# carpeta  1 - archivo 2
+# carpeta  1 - archivo 1
 
-rt_C1_A2 = resultados [1][2]
+rt_C1_A2 = resultados [1][1]
 energia_C1_A2 = rt_C1_A2 [0]
 zero_cross_C1_A2 = rt_C1_A2 [1]
 entropia_C1_A2 = rt_C1_A2 [2]
