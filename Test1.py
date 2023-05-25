@@ -36,60 +36,66 @@ def zero_cross(vec):
 
 def entropia(vc):
     opent = []
-    for iii in range(len(vc)):
-        y = ((vc[iii]) / energia(vc)) ** 2
-        if y <= 0:  
-            w = np.nan  # Asignar un valor predeterminado, por ejemplo, np.nan
-        else:
-            z = np.log(y)
-            w = y * z
-        opent.append(w)
-    sent = sum(opent)
+    vc = np.array(vc)  # Convertir la lista a un arreglo de NumPy para facilitar las operaciones vectorizadas
+    eng = energia(vc)  
+    y = (vc / eng) ** 2
+
+    # Aplicar las operaciones vectorizadas solo a los valores positivos de y
+    mask = (y > 0)  # Máscara booleana para valores positivos de y
+    y_pos = y[mask]  # Valores positivos de y
+    z = np.zeros_like(y)  # Arreglo de ceros del mismo tamaño que y
+    z[mask] = np.log(y_pos)  # Calcular el logaritmo solo para los valores positivos de y
+    w = y * z
+
+    sent = np.sum(w)  
     H = sent / len(vc)
     return H
+
 
 
 def calcular_resultados(files, folders, path):
     resultados = []
     for folder in folders:
-        folder_resultados = []
+        folder_rt = []
         for file in files:
             
             archivo = folder + '/' + file
-            vector = import_audio(path, archivo)
+            vec = import_audio(path, archivo)
 
             
-            resultado_zero_cross = zero_cross(vector)
-            resultado_entropia = entropia(vector)
-            resultado_energia = energia(vector)
+            rt_zero_cross = zero_cross(vec)
+            rt_entropia = entropia(vec)
+            rt_energia = energia(vec)
 
-            folder_resultados.append((resultado_energia, resultado_zero_cross, resultado_entropia))
+            folder_rt.append((rt_energia, rt_zero_cross, rt_entropia))
 
-        resultados.append(folder_resultados)
+        resultados.append(folder_rt)
 
     return resultados
 
 # 
 resultados = calcular_resultados(files, folders, path)
 
-resultados_carpeta0_archivo0 = resultados[0][0]
-energia_carpeta0_archivo0 = resultados_carpeta0_archivo0[0]
-zero_cross_carpeta0_archivo0 = resultados_carpeta0_archivo0[1]
-entropia_carpeta0_archivo0 = resultados_carpeta0_archivo0[2]
+rt_C0_A0 = resultados[0][0]
+energia_C0_A0 = rt_C0_A0[0]
+zero_cross_C0_A0 = rt_C0_A0[1]
+entropia_C0_A0 = rt_C0_A0[2]
 
-# Acceder a los resultados de la carpeta en la posición 1 y el archivo en la posición 2
-resultados_carpeta1_archivo2 = resultados[1][2]
-energia_carpeta1_archivo2 = resultados_carpeta1_archivo2[0]
-zero_cross_carpeta1_archivo2 = resultados_carpeta1_archivo2[1]
-entropia_carpeta1_archivo2 = resultados_carpeta1_archivo2[2]
+# carpeta  1 - archivo 2
 
-# Imprimir los resultados
-print("Resultados Carpeta 0 Archivo 0:")
-print("Energía:", energia_carpeta0_archivo0)
-print("Zero Cross:", zero_cross_carpeta0_archivo0)
-print("Entropía:", entropia_carpeta0_archivo0)
+rt_C1_A2 = resultados [1][2]
+energia_C1_A2 = rt_C1_A2 [0]
+zero_cross_C1_A2 = rt_C1_A2 [1]
+entropia_C1_A2 = rt_C1_A2 [2]
 
-print("Resultados Carpeta 1 Archivo 2:")
-print("Energía:", energia_carpeta1_archivo2)
-print("Zero Cross:", zero_cross_carpeta1_archivo2)
-print("Entropía:", entropia_carpeta1_archivo2)
+# 
+
+print("Resultados Carpeta 0 Archivo 0 = " ,"\n")
+print("Energía ->", energia_C0_A0 ,"\n")
+print("Zero Cross ->", zero_cross_C0_A0 ,"\n")
+print("Entropía ->", entropia_C0_A0 ,"\n")
+
+print(f"Resultados Carpeta 1 Archivo 2 =","\n" )
+print(f"Energía ->", energia_C1_A2 ,"\n")
+print(f"Zero Cross ->", zero_cross_C1_A2 ,"\n")
+print(f"Entropía ->", entropia_C1_A2 ,"\n")
